@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Wizcart SDK</string>
+    <string name="namogoo">Namogoo</string>
+
+    <!-- Main Shopping Activity -->
+    <string name="app_name_title">SDK Sample App</string>
+    <string name="app_version">Sample App Version %1$s</string>
+    <string name="sdk_version">SDK Version %1$s</string>
+    <string name="user_control">Control</string>
+    <string name="user_wiz_cart">Wiz-Cart</string>
+    <string name="tracking">Tracking Call</string>
+    <string name="incentive">Get Incentive Call</string>
+    <string name="processing">Processing...</string>
+
+    <!-- Incentive Activity -->
+    <string name="shopping_cart">Shopping Cart</string>
+    <string name="namogoo_cube">The Namogoo Cube</string>
+    <string name="color">Color</string>
+    <string name="size">Size</string>
+    <string name="your_size">Your size</string>
+    <string name="promo_code">Promo Code</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="btn_buy_now">I want to pay now!</string>
+    <string name="coupon_copy">Coupon code was copied to your clipboard</string>
+    <string name="incentive_result_below_threshold_first_tier">Add products to your cart\nto discover your special offer</string>
+    <string name="incentive_result_above_threshold_first_tier_below_min_tier_percent">Add %1$s Euro of products\nand get %2$s Percent discount</string>
+    <string name="incentive_result_above_threshold_first_tier_below_min_tier_fixed">Add %1$s Euro of products\nand get %2$s Euro discount</string>
+    <string name="incentive_result_in_tier_percent">You have %1$s Percent discount</string>
+    <string name="incentive_result_in_tier_fixed">You have %1$s Euro discount</string>
+
+    <!-- Thank you Activity -->
+    <string name="congratulations">Congratulations</string>
+    <string name="processed">Your order has been processed.\nEstimate delivery time 3-6 days.</string>
+    <string name="thank_you">Thank you for shopping\n@NAMOGOO_CUBES_FOR_LESS</string>
+    <string name="follow_social">Don\'t forget to follow our social account</string>
+    <string name="back_to_store">Back to Store</string>
+</resources>

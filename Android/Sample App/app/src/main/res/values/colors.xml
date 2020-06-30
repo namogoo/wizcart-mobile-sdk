@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#303030</color>
+    <color name="colorPrimaryDark">#303030</color>
+    <color name="colorAccent">#FECF3C</color>
+
+    <color name="borderColor">#117E89</color>
+    <color name="circleButtonTextColor">#117E89</color>
+    <color name="purchaseButtonColor">#117E89</color>
+    <color name="circleButtonColor">#44117E89</color>
+    <color name="light_gray">#C0C0C0</color>
+    <color name="separator">#F1F5F4</color>
+    <color name="incentive_background_color">#66FECF3C</color>
+    <color name="coupon_border_color">#D10242</color>
+</resources>
