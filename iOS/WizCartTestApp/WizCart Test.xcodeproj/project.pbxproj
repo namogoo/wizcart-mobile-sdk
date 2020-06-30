@@ -1,0 +1,930 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1E8D001B018388BBE773E27D /* Pods_WizCart_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F3915581BF72B2F1089FE9 /* Pods_WizCart_Test.framework */; };
+		661DA48C248D44710094576D /* NamogooCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661DA48B248D44710094576D /* NamogooCube.swift */; };
+		661DA48E248D48760094576D /* NamogooSphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661DA48D248D48760094576D /* NamogooSphere.swift */; };
+		661DA494248D4F270094576D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661DA493248D4F270094576D /* AppManager.swift */; };
+		6662A00B247FE10200BDFC13 /* UIView + Magic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6662A00A247FE10200BDFC13 /* UIView + Magic.swift */; };
+		6662A00E247FFA5D00BDFC13 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6662A00D247FFA5D00BDFC13 /* CartViewController.swift */; };
+		6662A010247FFB4600BDFC13 /* AppDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6662A00F247FFB4600BDFC13 /* AppDefines.swift */; };
+		6662A016248008CB00BDFC13 /* UIAlertContoller + Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6662A015248008CB00BDFC13 /* UIAlertContoller + Toast.swift */; };
+		667F8EA72484101200BE02E3 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667F8EA62484101200BE02E3 /* ConfirmationViewController.swift */; };
+		668867DF24729B86005AC343 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668867DE24729B86005AC343 /* AppDelegate.swift */; };
+		668867E324729B86005AC343 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668867E224729B86005AC343 /* MainViewController.swift */; };
+		668867E624729B86005AC343 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 668867E424729B86005AC343 /* Main.storyboard */; };
+		668867E824729B87005AC343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 668867E724729B87005AC343 /* Assets.xcassets */; };
+		668867EB24729B87005AC343 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 668867E924729B87005AC343 /* LaunchScreen.storyboard */; };
+		668867F624729B87005AC343 /* WizCart_TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668867F524729B87005AC343 /* WizCart_TestTests.swift */; };
+		6688680124729B87005AC343 /* WizCart_TestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6688680024729B87005AC343 /* WizCart_TestUITests.swift */; };
+		66AE2DF4248E48CA0003351F /* GetCouponResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AE2DF3248E48CA0003351F /* GetCouponResponse.swift */; };
+		66D7C609248D78250053AEE6 /* GetCouponRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D7C608248D78250053AEE6 /* GetCouponRequest.swift */; };
+		66EA2FDC2485052A0029C63F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EA2FDB2485052A0029C63F /* DataService.swift */; };
+		66EA2FE424850C360029C63F /* GetUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EA2FE324850C360029C63F /* GetUserRequest.swift */; };
+		66EA2FE6248517F00029C63F /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EA2FE5248517F00029C63F /* GetUserResponse.swift */; };
+		D949804809EE887CE8191A21 /* Pods_WizCart_TestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405850F54CC89E6711078E9E /* Pods_WizCart_TestTests.framework */; };
+		F2E75F954C25914D1621D3DB /* Pods_WizCart_Test_WizCart_TestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB04F4B22B07BF553B4A10A /* Pods_WizCart_Test_WizCart_TestUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		668867F224729B87005AC343 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 668867D324729B86005AC343 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 668867DA24729B86005AC343;
+			remoteInfo = "WizCart-Test";
+		};
+		668867FD24729B87005AC343 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 668867D324729B86005AC343 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 668867DA24729B86005AC343;
+			remoteInfo = "WizCart-Test";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		66EBEE22249CD9FD006D8B56 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0F52CCF5507403EECB879AD9 /* Pods-WizCart-Test-WizCart-TestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WizCart-Test-WizCart-TestUITests.release.xcconfig"; path = "Target Support Files/Pods-WizCart-Test-WizCart-TestUITests/Pods-WizCart-Test-WizCart-TestUITests.release.xcconfig"; sourceTree = "<group>"; };
+		10615E47ADC14510EB802D24 /* Pods-WizCart-Test-WizCart-TestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WizCart-Test-WizCart-TestUITests.debug.xcconfig"; path = "Target Support Files/Pods-WizCart-Test-WizCart-TestUITests/Pods-WizCart-Test-WizCart-TestUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		278972241AC106A1DBFF8B50 /* Pods-WizCart-Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WizCart-Test.debug.xcconfig"; path = "Target Support Files/Pods-WizCart-Test/Pods-WizCart-Test.debug.xcconfig"; sourceTree = "<group>"; };
+		32703A9C5832890EFAB41FFB /* Pods-WizCart-TestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WizCart-TestTests.debug.xcconfig"; path = "Target Support Files/Pods-WizCart-TestTests/Pods-WizCart-TestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		405850F54CC89E6711078E9E /* Pods_WizCart_TestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WizCart_TestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		661DA48B248D44710094576D /* NamogooCube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamogooCube.swift; sourceTree = "<group>"; };
+		661DA48D248D48760094576D /* NamogooSphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamogooSphere.swift; sourceTree = "<group>"; };
+		661DA493248D4F270094576D /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		6662A006247FDF8F00BDFC13 /* GothaProReg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothaProReg.otf; sourceTree = "<group>"; };
+		6662A00A247FE10200BDFC13 /* UIView + Magic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + Magic.swift"; sourceTree = "<group>"; };
+		6662A00C247FEC3100BDFC13 /* GothaProMed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothaProMed.otf; sourceTree = "<group>"; };
+		6662A00D247FFA5D00BDFC13 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		6662A00F247FFB4600BDFC13 /* AppDefines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDefines.swift; sourceTree = "<group>"; };
+		6662A015248008CB00BDFC13 /* UIAlertContoller + Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertContoller + Toast.swift"; sourceTree = "<group>"; };
+		667F8EA42483F14D00BE02E3 /* SFNSDisplay.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFNSDisplay.ttf; sourceTree = "<group>"; };
+		667F8EA52483F15B00BE02E3 /* GothaProLig.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothaProLig.otf; sourceTree = "<group>"; };
+		667F8EA62484101200BE02E3 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
+		668867DB24729B86005AC343 /* WizCart Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WizCart Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		668867DE24729B86005AC343 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		668867E224729B86005AC343 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		668867E524729B86005AC343 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		668867E724729B87005AC343 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		668867EA24729B87005AC343 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		668867EC24729B87005AC343 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		668867F124729B87005AC343 /* WizCart-TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WizCart-TestTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		668867F524729B87005AC343 /* WizCart_TestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizCart_TestTests.swift; sourceTree = "<group>"; };
+		668867F724729B87005AC343 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		668867FC24729B87005AC343 /* WizCart-TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WizCart-TestUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6688680024729B87005AC343 /* WizCart_TestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizCart_TestUITests.swift; sourceTree = "<group>"; };
+		6688680224729B87005AC343 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66AE2DF3248E48CA0003351F /* GetCouponResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCouponResponse.swift; sourceTree = "<group>"; };
+		66D7C608248D78250053AEE6 /* GetCouponRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCouponRequest.swift; sourceTree = "<group>"; };
+		66EA2FDB2485052A0029C63F /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		66EA2FE324850C360029C63F /* GetUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserRequest.swift; sourceTree = "<group>"; };
+		66EA2FE5248517F00029C63F /* GetUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserResponse.swift; sourceTree = "<group>"; };
+		9DC1960A46583D828557505C /* Pods-WizCart-TestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WizCart-TestTests.release.xcconfig"; path = "Target Support Files/Pods-WizCart-TestTests/Pods-WizCart-TestTests.release.xcconfig"; sourceTree = "<group>"; };
+		A6A37DE0EB861C8D29628F4D /* Pods-WizCart-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WizCart-Test.release.xcconfig"; path = "Target Support Files/Pods-WizCart-Test/Pods-WizCart-Test.release.xcconfig"; sourceTree = "<group>"; };
+		A9F3915581BF72B2F1089FE9 /* Pods_WizCart_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WizCart_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEB04F4B22B07BF553B4A10A /* Pods_WizCart_Test_WizCart_TestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WizCart_Test_WizCart_TestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		668867D824729B86005AC343 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E8D001B018388BBE773E27D /* Pods_WizCart_Test.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		668867EE24729B87005AC343 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D949804809EE887CE8191A21 /* Pods_WizCart_TestTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		668867F924729B87005AC343 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2E75F954C25914D1621D3DB /* Pods_WizCart_Test_WizCart_TestUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		667F8EA82484FB3100BE02E3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				661DA493248D4F270094576D /* AppManager.swift */,
+				66EA2FE224850B890029C63F /* Models */,
+				667F8EAA2484FB4C00BE02E3 /* Extensions */,
+				667F8EA92484FB3A00BE02E3 /* App Management */,
+				66D7C60A248D792A0053AEE6 /* Network */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		667F8EA92484FB3A00BE02E3 /* App Management */ = {
+			isa = PBXGroup;
+			children = (
+				6662A00F247FFB4600BDFC13 /* AppDefines.swift */,
+				668867DE24729B86005AC343 /* AppDelegate.swift */,
+			);
+			path = "App Management";
+			sourceTree = "<group>";
+		};
+		667F8EAA2484FB4C00BE02E3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6662A00A247FE10200BDFC13 /* UIView + Magic.swift */,
+				6662A015248008CB00BDFC13 /* UIAlertContoller + Toast.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		667F8EAB2484FB6500BE02E3 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				668867E224729B86005AC343 /* MainViewController.swift */,
+				6662A00D247FFA5D00BDFC13 /* CartViewController.swift */,
+				667F8EA62484101200BE02E3 /* ConfirmationViewController.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		667F8EAC2484FB7300BE02E3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				667F8EAE2484FB8C00BE02E3 /* Storybooards */,
+				667F8EAD2484FB7F00BE02E3 /* Fonts */,
+				668867E724729B87005AC343 /* Assets.xcassets */,
+				668867EC24729B87005AC343 /* Info.plist */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		667F8EAD2484FB7F00BE02E3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6662A006247FDF8F00BDFC13 /* GothaProReg.otf */,
+				667F8EA52483F15B00BE02E3 /* GothaProLig.otf */,
+				6662A00C247FEC3100BDFC13 /* GothaProMed.otf */,
+				667F8EA42483F14D00BE02E3 /* SFNSDisplay.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		667F8EAE2484FB8C00BE02E3 /* Storybooards */ = {
+			isa = PBXGroup;
+			children = (
+				668867E424729B86005AC343 /* Main.storyboard */,
+				668867E924729B87005AC343 /* LaunchScreen.storyboard */,
+			);
+			path = Storybooards;
+			sourceTree = "<group>";
+		};
+		668867D224729B86005AC343 = {
+			isa = PBXGroup;
+			children = (
+				668867DD24729B86005AC343 /* WizCart-Test */,
+				668867F424729B87005AC343 /* WizCart-TestTests */,
+				668867FF24729B87005AC343 /* WizCart-TestUITests */,
+				668867DC24729B86005AC343 /* Products */,
+				6688680E24729D1A005AC343 /* Frameworks */,
+				8D35C33490F516E3CFFAAC18 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		668867DC24729B86005AC343 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				668867DB24729B86005AC343 /* WizCart Test.app */,
+				668867F124729B87005AC343 /* WizCart-TestTests.xctest */,
+				668867FC24729B87005AC343 /* WizCart-TestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		668867DD24729B86005AC343 /* WizCart-Test */ = {
+			isa = PBXGroup;
+			children = (
+				667F8EA82484FB3100BE02E3 /* Common */,
+				667F8EAB2484FB6500BE02E3 /* Modules */,
+				667F8EAC2484FB7300BE02E3 /* Support Files */,
+			);
+			path = "WizCart-Test";
+			sourceTree = "<group>";
+		};
+		668867F424729B87005AC343 /* WizCart-TestTests */ = {
+			isa = PBXGroup;
+			children = (
+				668867F524729B87005AC343 /* WizCart_TestTests.swift */,
+				668867F724729B87005AC343 /* Info.plist */,
+			);
+			path = "WizCart-TestTests";
+			sourceTree = "<group>";
+		};
+		668867FF24729B87005AC343 /* WizCart-TestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6688680024729B87005AC343 /* WizCart_TestUITests.swift */,
+				6688680224729B87005AC343 /* Info.plist */,
+			);
+			path = "WizCart-TestUITests";
+			sourceTree = "<group>";
+		};
+		6688680E24729D1A005AC343 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9F3915581BF72B2F1089FE9 /* Pods_WizCart_Test.framework */,
+				FEB04F4B22B07BF553B4A10A /* Pods_WizCart_Test_WizCart_TestUITests.framework */,
+				405850F54CC89E6711078E9E /* Pods_WizCart_TestTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		66D7C60A248D792A0053AEE6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				66EA2FDB2485052A0029C63F /* DataService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		66EA2FE224850B890029C63F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				66EA2FE5248517F00029C63F /* GetUserResponse.swift */,
+				66EA2FE324850C360029C63F /* GetUserRequest.swift */,
+				66D7C608248D78250053AEE6 /* GetCouponRequest.swift */,
+				66AE2DF3248E48CA0003351F /* GetCouponResponse.swift */,
+				661DA48B248D44710094576D /* NamogooCube.swift */,
+				661DA48D248D48760094576D /* NamogooSphere.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8D35C33490F516E3CFFAAC18 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				278972241AC106A1DBFF8B50 /* Pods-WizCart-Test.debug.xcconfig */,
+				A6A37DE0EB861C8D29628F4D /* Pods-WizCart-Test.release.xcconfig */,
+				10615E47ADC14510EB802D24 /* Pods-WizCart-Test-WizCart-TestUITests.debug.xcconfig */,
+				0F52CCF5507403EECB879AD9 /* Pods-WizCart-Test-WizCart-TestUITests.release.xcconfig */,
+				32703A9C5832890EFAB41FFB /* Pods-WizCart-TestTests.debug.xcconfig */,
+				9DC1960A46583D828557505C /* Pods-WizCart-TestTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		668867DA24729B86005AC343 /* WizCart-Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6688680524729B87005AC343 /* Build configuration list for PBXNativeTarget "WizCart-Test" */;
+			buildPhases = (
+				48143E06EF2CBD30ED8C5753 /* [CP] Check Pods Manifest.lock */,
+				668867D724729B86005AC343 /* Sources */,
+				668867D824729B86005AC343 /* Frameworks */,
+				668867D924729B86005AC343 /* Resources */,
+				66EBEE22249CD9FD006D8B56 /* Embed Frameworks */,
+				66B22552247BE30D00B916A7 /* Run Script - MARKUP */,
+				47F0E66B915B7F8454830E3D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WizCart-Test";
+			productName = "WizCart-Test";
+			productReference = 668867DB24729B86005AC343 /* WizCart Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		668867F024729B87005AC343 /* WizCart-TestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6688680824729B87005AC343 /* Build configuration list for PBXNativeTarget "WizCart-TestTests" */;
+			buildPhases = (
+				59B253CF89090386CD53821B /* [CP] Check Pods Manifest.lock */,
+				668867ED24729B87005AC343 /* Sources */,
+				668867EE24729B87005AC343 /* Frameworks */,
+				668867EF24729B87005AC343 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				668867F324729B87005AC343 /* PBXTargetDependency */,
+			);
+			name = "WizCart-TestTests";
+			productName = "WizCart-TestTests";
+			productReference = 668867F124729B87005AC343 /* WizCart-TestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		668867FB24729B87005AC343 /* WizCart-TestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6688680B24729B87005AC343 /* Build configuration list for PBXNativeTarget "WizCart-TestUITests" */;
+			buildPhases = (
+				5F1BECA33A0E7487686723E3 /* [CP] Check Pods Manifest.lock */,
+				668867F824729B87005AC343 /* Sources */,
+				668867F924729B87005AC343 /* Frameworks */,
+				668867FA24729B87005AC343 /* Resources */,
+				AB2AE46FED35239C5F853C04 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				668867FE24729B87005AC343 /* PBXTargetDependency */,
+			);
+			name = "WizCart-TestUITests";
+			productName = "WizCart-TestUITests";
+			productReference = 668867FC24729B87005AC343 /* WizCart-TestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		668867D324729B86005AC343 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Gini-Apps";
+				TargetAttributes = {
+					668867DA24729B86005AC343 = {
+						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
+					};
+					668867F024729B87005AC343 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 668867DA24729B86005AC343;
+					};
+					668867FB24729B87005AC343 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 668867DA24729B86005AC343;
+					};
+				};
+			};
+			buildConfigurationList = 668867D624729B86005AC343 /* Build configuration list for PBXProject "WizCart Test" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 668867D224729B86005AC343;
+			productRefGroup = 668867DC24729B86005AC343 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				668867DA24729B86005AC343 /* WizCart-Test */,
+				668867F024729B87005AC343 /* WizCart-TestTests */,
+				668867FB24729B87005AC343 /* WizCart-TestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		668867D924729B86005AC343 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				668867EB24729B87005AC343 /* LaunchScreen.storyboard in Resources */,
+				668867E824729B87005AC343 /* Assets.xcassets in Resources */,
+				668867E624729B86005AC343 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		668867EF24729B87005AC343 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		668867FA24729B87005AC343 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47F0E66B915B7F8454830E3D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WizCart-Test/Pods-WizCart-Test-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WizCart-Test/Pods-WizCart-Test-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WizCart-Test/Pods-WizCart-Test-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48143E06EF2CBD30ED8C5753 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WizCart-Test-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59B253CF89090386CD53821B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WizCart-TestTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F1BECA33A0E7487686723E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WizCart-Test-WizCart-TestUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66B22552247BE30D00B916A7 /* Run Script - MARKUP */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script - MARKUP";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:|WARRNING:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
+		};
+		AB2AE46FED35239C5F853C04 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WizCart-Test-WizCart-TestUITests/Pods-WizCart-Test-WizCart-TestUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WizCart-Test-WizCart-TestUITests/Pods-WizCart-Test-WizCart-TestUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WizCart-Test-WizCart-TestUITests/Pods-WizCart-Test-WizCart-TestUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		668867D724729B86005AC343 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				667F8EA72484101200BE02E3 /* ConfirmationViewController.swift in Sources */,
+				6662A00E247FFA5D00BDFC13 /* CartViewController.swift in Sources */,
+				668867E324729B86005AC343 /* MainViewController.swift in Sources */,
+				66EA2FE424850C360029C63F /* GetUserRequest.swift in Sources */,
+				66EA2FE6248517F00029C63F /* GetUserResponse.swift in Sources */,
+				66AE2DF4248E48CA0003351F /* GetCouponResponse.swift in Sources */,
+				6662A00B247FE10200BDFC13 /* UIView + Magic.swift in Sources */,
+				66D7C609248D78250053AEE6 /* GetCouponRequest.swift in Sources */,
+				661DA494248D4F270094576D /* AppManager.swift in Sources */,
+				661DA48C248D44710094576D /* NamogooCube.swift in Sources */,
+				6662A016248008CB00BDFC13 /* UIAlertContoller + Toast.swift in Sources */,
+				66EA2FDC2485052A0029C63F /* DataService.swift in Sources */,
+				661DA48E248D48760094576D /* NamogooSphere.swift in Sources */,
+				668867DF24729B86005AC343 /* AppDelegate.swift in Sources */,
+				6662A010247FFB4600BDFC13 /* AppDefines.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		668867ED24729B87005AC343 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				668867F624729B87005AC343 /* WizCart_TestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		668867F824729B87005AC343 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6688680124729B87005AC343 /* WizCart_TestUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		668867F324729B87005AC343 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 668867DA24729B86005AC343 /* WizCart-Test */;
+			targetProxy = 668867F224729B87005AC343 /* PBXContainerItemProxy */;
+		};
+		668867FE24729B87005AC343 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 668867DA24729B86005AC343 /* WizCart-Test */;
+			targetProxy = 668867FD24729B87005AC343 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		668867E424729B86005AC343 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				668867E524729B86005AC343 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		668867E924729B87005AC343 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				668867EA24729B87005AC343 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6688680324729B87005AC343 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6688680424729B87005AC343 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6688680624729B87005AC343 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 278972241AC106A1DBFF8B50 /* Pods-WizCart-Test.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "WizCart-Test/Support Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.namogoo.WizCart-Test";
+				PRODUCT_NAME = "WizCart Test";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "$(VALID_ARCHS) x86_64";
+			};
+			name = Debug;
+		};
+		6688680724729B87005AC343 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6A37DE0EB861C8D29628F4D /* Pods-WizCart-Test.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "WizCart-Test/Support Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.namogoo.WizCart-Test";
+				PRODUCT_NAME = "WizCart Test";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "$(VALID_ARCHS) x86_64";
+			};
+			name = Release;
+		};
+		6688680924729B87005AC343 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32703A9C5832890EFAB41FFB /* Pods-WizCart-TestTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LWXCT592NE;
+				INFOPLIST_FILE = "WizCart-TestTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.namogoo.WizCart-TestTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WizCart-Test.app/WizCart-Test";
+			};
+			name = Debug;
+		};
+		6688680A24729B87005AC343 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DC1960A46583D828557505C /* Pods-WizCart-TestTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LWXCT592NE;
+				INFOPLIST_FILE = "WizCart-TestTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.namogoo.WizCart-TestTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WizCart-Test.app/WizCart-Test";
+			};
+			name = Release;
+		};
+		6688680C24729B87005AC343 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10615E47ADC14510EB802D24 /* Pods-WizCart-Test-WizCart-TestUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LWXCT592NE;
+				INFOPLIST_FILE = "WizCart-TestUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.namogoo.WizCart-TestUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "WizCart-Test";
+			};
+			name = Debug;
+		};
+		6688680D24729B87005AC343 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F52CCF5507403EECB879AD9 /* Pods-WizCart-Test-WizCart-TestUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LWXCT592NE;
+				INFOPLIST_FILE = "WizCart-TestUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.namogoo.WizCart-TestUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "WizCart-Test";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		668867D624729B86005AC343 /* Build configuration list for PBXProject "WizCart Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6688680324729B87005AC343 /* Debug */,
+				6688680424729B87005AC343 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6688680524729B87005AC343 /* Build configuration list for PBXNativeTarget "WizCart-Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6688680624729B87005AC343 /* Debug */,
+				6688680724729B87005AC343 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6688680824729B87005AC343 /* Build configuration list for PBXNativeTarget "WizCart-TestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6688680924729B87005AC343 /* Debug */,
+				6688680A24729B87005AC343 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6688680B24729B87005AC343 /* Build configuration list for PBXNativeTarget "WizCart-TestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6688680C24729B87005AC343 /* Debug */,
+				6688680D24729B87005AC343 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 668867D324729B86005AC343 /* Project object */;
+}

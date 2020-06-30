@@ -1,6 +1,0 @@
-framework module Pods_WizCart_TestTests {
-  umbrella header "Pods-WizCart-TestTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

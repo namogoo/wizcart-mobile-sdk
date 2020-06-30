@@ -1,0 +1,11 @@
+framework module WizCart {
+  umbrella header "WizCart.h"
+
+  export *
+  module * { export * }
+}
+
+module WizCart.Swift {
+    header "WizCart-Swift.h"
+    requires objc
+}
