@@ -232,15 +232,58 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_CLASS("_TtC7WizCart11WizCartCart")
 @interface WizCartCart : NSObject
+/// Creates a <code>WizCartCart</code> instance from the specified parameters.
+/// Represent the current client cart state.
+/// \param cartId A unique id for the cart.
+///
+/// \param items An array of WizCartProducts representing the current items that are in the cart.
+///
+/// \param total The total amount of the cart after discount, Including VAT, shipping, etc.
+///
+/// \param subtotal The total amount of the cart before discount, VAT, shipping, etc.
+///
+/// \param quantity Total items quantity. Two shirts and a jeans count as three items.
+///
 - (nonnull instancetype)init:(NSString * _Nonnull)cartId items:(NSArray<WizCartProduct *> * _Nonnull)items total:(double)total subtotal:(double)subtotal quantity:(int32_t)quantity OBJC_DESIGNATED_INITIALIZER;
+/// Creates a <code>WizCartCart</code> instance from the specified parameters.
+/// Represent the current client cart state.
+/// \param cartId A unique id for the cart.
+///
+/// \param items An array of WizCartProducts representing the current items that are in the cart.
+///
+/// \param total The total amount of the cart after discount, Including VAT, shipping, etc.
+///
+/// \param subtotal The total amount of the cart before discount, VAT, shipping, etc.
+///
+/// \param quantity Total items quantity. Two shirts and a jeans count as three items.
+///
+/// \param discountValue The total discount value of the cart, regardless if the discount originated from Personali or other sources.
+///
 - (nonnull instancetype)init:(NSString * _Nonnull)cartId items:(NSArray<WizCartProduct *> * _Nonnull)items total:(double)total subtotal:(double)subtotal quantity:(int32_t)quantity discountValue:(double)discountValue OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
+/// Configuration object used to configure the WizCartSDK.
 SWIFT_CLASS("_TtC7WizCart21WizCartConfigurations")
 @interface WizCartConfigurations : NSObject
+/// Creates a <code>WizCartConfigurations</code> instance from the specified parameters.
+/// <code>WizCartConfigurations</code> object is used in order to configure the SDK.
+/// \param accountId The account id supplied to you by Personali.
+///
+/// \param clientId A logged in user id.
+///
+/// \param tempClientId A client id that represents a user that is not currently logged in. If this field is left empty, the SDK will user the <code>retailerVisitor</code> as a <code>tempClientId</code>.
+///
+/// \param retailerVisitor An id that identifies a specific user regardless of he’s login state. If this field is left empty, A UUID will be generated for you.
+///
+/// \param isPreproduction A boolean indicating whether the SDK should work in pre production environement or the production environement.
+///
+/// \param attributes Any attributes you might want to attribute to the user for analytic purposes.
+///
+/// \param trafficSources An array that represents the traffic source of the current user.
+///
 - (nonnull instancetype)initWith:(NSString * _Nonnull)accountId clientId:(NSString * _Nullable)clientId tempClientId:(NSString * _Nullable)tempClientId retailerVisitor:(NSString * _Nullable)retailerVisitor isPreproduction:(BOOL)isPreproduction attributes:(NSDictionary<NSString *, NSString *> * _Nullable)attributes trafficSources:(NSArray<NSString *> * _Nullable)trafficSources OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -249,23 +292,50 @@ SWIFT_CLASS("_TtC7WizCart21WizCartConfigurations")
 @class WizCartTrackResponse;
 @class WizCartIncentiveResponse;
 
+/// A protocol which the <code>WizCartSDK</code>’s delegate must conform to. The delegate is informed
+/// when the SDK finishes processing the request and the result is ready for use.
+/// <ul>
+///   <li>
+///     The SDK holds a weak reference to the delegate, therefore the delegate MUST be implemented by a class.
+///   </li>
+///   <li>
+///     This is an Objective-C style protocol and all functions are marked as <code>optional</code>.
+///   </li>
+/// </ul>
 SWIFT_PROTOCOL("_TtP7WizCart15WizCartDelegate_")
 @protocol WizCartDelegate
 @optional
+/// The SDK finished processing the track request.
+/// \param trackResponse the <code>WizCartTrackResponse</code>.
+///
+/// \param error any <code>Error</code> that might occur along the way. A non nil error doesn’t necessarily indicate that the track request had failed.
+///
 - (void)trackResultWith:(WizCartTrackResponse * _Nullable)trackResponse and:(NSError * _Nullable)error;
+/// The SDK finished processing the get incentive request.
+/// \param incentiveResponse the <code>WizCartIncentiveResponse</code>.
+///
+/// \param error any <code>Error</code> that might occur along the way.
+///
 - (void)getIncentiveResultWith:(WizCartIncentiveResponse * _Nullable)incentiveResponse and:(NSError * _Nullable)error;
 @end
 
 @class WizCartTier;
 
+/// The response object for get incentive call.
 SWIFT_CLASS("_TtC7WizCart24WizCartIncentiveResponse")
 @interface WizCartIncentiveResponse : NSObject
+/// Current discount tier of the end user.
 @property (nonatomic, readonly, strong) WizCartTier * _Nullable currentTier;
+/// Next discount tier of the end user.
 @property (nonatomic, readonly, strong) WizCartTier * _Nullable nextTier;
+/// The expiration date for the current tier.
 @property (nonatomic, readonly) int64_t expirationDate;
+/// An id of the current incentive response
 @property (nonatomic, readonly) int32_t incentiveId;
-@property (nonatomic, readonly, copy) NSArray<WizCartProduct *> * _Nonnull cartEligibleItems;
-@property (nonatomic, readonly, copy) NSArray<WizCartProduct *> * _Nonnull pageEligibleItems;
+/// An array of items that are eligible for discount in the current cart.
+@property (nonatomic, readonly, copy) NSArray<WizCartProduct *> * _Nullable cartEligibleItems;
+/// An array of items that are eligible for discount in the current page.
+@property (nonatomic, readonly, copy) NSArray<WizCartProduct *> * _Nullable pageEligibleItems;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -274,16 +344,34 @@ enum DiscountValueType : NSInteger;
 
 SWIFT_CLASS("_TtC7WizCart22WizCartIncentiveResult")
 @interface WizCartIncentiveResult : NSObject
+/// The discount value for the current user represented as integer fractions.
+/// <ul>
+///   <li>
+///     For example:
+///     <ul>
+///       <li>
+///         A value of 750 where type is fixed, equals to 7.5 in your current currency.
+///       </li>
+///       <li>
+///         A value of 750 where type is percentage, equals to 7.5%.
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
 @property (nonatomic, readonly) int32_t value;
+/// The discount type for the current tyre.
 @property (nonatomic, readonly) enum DiscountValueType type;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 typedef SWIFT_ENUM(NSInteger, DiscountValueType, closed) {
-  DiscountValueTypePercentage = 0,
-  DiscountValueTypeFixed = 1,
-  DiscountValueTypeUnknown = 2,
+/// The discount is a fixed amount.
+  DiscountValueTypeFixed = 0,
+/// The discount is a percentage from the cart’s subtotal.
+  DiscountValueTypePercentage = 1,
+/// Should never reach this case.
+  DiscountValueTypeUnknown = 397265,
 };
 
 typedef SWIFT_ENUM(NSInteger, WizCartPageType, closed) {
@@ -305,14 +393,71 @@ typedef SWIFT_ENUM(NSInteger, WizCartPageType, closed) {
 
 SWIFT_CLASS("_TtC7WizCart14WizCartProduct")
 @interface WizCartProduct : NSObject
+/// A unique id for the current product model. Contrary to productId where multiple submodels of the same product might share the same id, this property should be unique for each submodel.
+/// <ul>
+///   <li>
+///     For example:
+///     <ul>
+///       <li>
+///         A t-shirt should have the same product id, but each shirt color should have a unique SKU.
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
 @property (nonatomic, readonly, copy) NSString * _Nonnull sku;
+/// An id for the current product. Contrary to SKU where multiple submodels of the same product might have a unique id, this property should be the same for all models of the same product.
+/// <ul>
+///   <li>
+///     For example:
+///     <ul>
+///       <li>
+///         A t-shirt might have a unique SKU for each submodel, but productId should be the same for all submodels.
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
 @property (nonatomic, readonly, copy) NSString * _Nonnull productId;
+/// The price of the product after discount.
 @property (nonatomic, readonly) double price;
+/// The price of the product before discount.
 @property (nonatomic, readonly) double listPrice;
+/// The brand name of the current product.
 @property (nonatomic, readonly, copy) NSString * _Nonnull brand;
+/// An array of categories for the current product.
+/// A product might belong to more than one category.
+/// <ul>
+///   <li>
+///     For example:
+///     <ul>
+///       <li>
+///         A pair of scissors might be in the household items category, and also in the tools category.
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull categories;
+/// Any attributes you might want to attribute to the product for analytic purposes.
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nullable attributes;
+/// The quantity of the item.
 @property (nonatomic, readonly) int32_t quantity;
+/// Creates a <code>WizCartProduct</code> instance from the specified parameters.
+/// <code>WizCartProduct</code> object is used to represent an item in the cart.
+/// \param sku A unique id for the current product model.
+///
+/// \param productId An id for the current product.
+///
+/// \param price The price of the product after discount.
+///
+/// \param listPrice The brand name of the current product.
+///
+/// \param brand The brand name of the current product.
+///
+/// \param categories An array of categories for the current product.
+///
+/// \param attributes Any attributes you might want to attribute to the product for analytic purposes.
+///
+/// \param quantity The quantity of the item.
+///
 - (nonnull instancetype)init:(NSString * _Nonnull)sku productId:(NSString * _Nonnull)productId price:(double)price listPrice:(double)listPrice brand:(NSString * _Nonnull)brand categories:(NSArray<NSString *> * _Nonnull)categories attributes:(NSDictionary<NSString *, NSString *> * _Nullable)attributes quantity:(int32_t)quantity OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -323,36 +468,176 @@ SWIFT_CLASS_NAMED("WizCartSDK")
 @interface WizCartSDK : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// Set the delegate for the SDK.
+/// \param delegate Reference to a class that implements the <code>WizCartDelegate</code> protocol.
+///
 + (void)setDelegate:(id <WizCartDelegate> _Nullable)delegate;
+/// Set the user Id for the current id.
+/// \param clientId An id that identifies the current user.
+///
+/// \param isTempClientId A boolean that indicates if the clientId belongs to a logged in user or not.
+///
 + (void)setClientId:(NSString * _Nonnull)clientId isTempClientId:(BOOL)isTempClientId;
+/// Set any attributes you might want to attribute to the user for analytic purposes.
+/// \param attributesDictionary A dictionary that contains any data you wanna attribute to the user in a string format.
+///
 + (void)setAttributes:(NSDictionary<NSString *, NSString *> * _Nonnull)attributesDictionary;
+/// Set the traffic source for the current user.
+/// \param trafficSources An array that represents the traffic source for the current user.
+///
 + (void)setTrafficSources:(NSArray<NSString *> * _Nonnull)trafficSources;
+/// Initialize the SDK and set the configurations object for the current session.
+/// important:
+/// must be set prior to any other SDK calls.
+/// \param configuration The configuration object to use.
+///
 + (void)configure:(WizCartConfigurations * _Nonnull)configuration;
+/// Initialize the SDK and set the configurations object for the current session.
+/// important:
+/// must be set prior to any other SDK calls.
+/// \param configuration The configuration object to use.
+///
+/// \param delegate Reference to a class that implements the <code>WizCartDelegate</code> protocol.
+///
 + (void)configure:(WizCartConfigurations * _Nonnull)configuration and:(id <WizCartDelegate> _Nullable)delegate;
+/// Sends a track page view request.
+/// Should be called each time a view was loaded.
+/// important:
+/// Do not call this method if the page shouldn’t present any incentive.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param referrer What application started the host app. First PageView only.
+///
+/// \param pageReferrer What was the Url that started the host application. First PageView only.
+///
+/// \param couponCode What is the current WizCart coupon code that is eligible by the client. If the client is not eligible for a WizCart coupon set to nil
+///
+/// \param hasDisplayedWizCartIncentive A boolean indicates that the user was presented with the WizCart incentive.
+///
 + (void)trackPageViewWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart referrer:(NSString * _Nullable)referrer pageReferrer:(NSString * _Nullable)pageReferrer couponCode:(NSString * _Nullable)couponCode hasDisplayedWizCartIncentive:(BOOL)hasDisplayedWizCartIncentive;
+/// Sends a track minimized coupon view request.
+/// Should be called each time the coupon view was minimized.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param couponCode What is the current WizCart coupon code that is eligible by the client. If the client is not eligible for a WizCart coupon set to nil
+///
 + (void)trackMinimizeViewWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart couponCode:(NSString * _Nullable)couponCode;
+/// Sends a track maximized coupon view request.
+/// Should be called each time the coupon view returns back to normal from minimized state.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param couponCode What is the current WizCart coupon code that is eligible by the client. If the client is not eligible for a WizCart coupon set to nil
+///
 + (void)trackMaximizeViewWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart couponCode:(NSString * _Nullable)couponCode;
+/// Sends a track copy coupon request.
+/// Should be called each time the user copied the coupon to the clipboard.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param couponCode What is the current WizCart coupon code that is eligible by the client. If the client is not eligible for a WizCart coupon set to nil
+///
 + (void)trackCopyCouponWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart couponCode:(NSString * _Nullable)couponCode;
+/// Sends a track insert coupon to cart request.
+/// Should be called when the user inserted the coupon into the cart.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param couponCode What is the current WizCart coupon code that is eligible by the client. If the client is not eligible for a WizCart coupon set to nil
+///
 + (void)trackInsertCouponToCartWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart couponCode:(NSString * _Nullable)couponCode;
+/// Sends a track item added to the cart request.
+/// Should be called each time the user added an item or updated the quantity of an item in the cart.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param product The product that was added to or updated in the cart.
+///
 + (void)trackItemAddedToCartWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart product:(WizCartProduct * _Nonnull)product;
+/// Sends a track item added to the cart request.
+/// Should be called each time the user removed an item or updated the quantity of an item in the cart.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param product The product that was added to or updated in the cart.
+///
 + (void)trackItemRemovedFromCartWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart product:(WizCartProduct * _Nonnull)product;
+/// Sends a track completed purchase request.
+/// Should be called after the user finalized the transaction.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param trackingId The tracking id for the order.
+///
+/// \param couponCode What is the current WizCart coupon code that is eligible by the client. If the client is not eligible for a WizCart coupon set to nil
+///
+/// \param appliedCoupons An array of coupons that was used for this cart, regardless of the origin of the coupon,
+///
+/// \param cartDiscountValueOfWizCart The final discount value the user received from a WizCart incentive, set to 0 if no WizCart incentive was used.,
+///
+/// \param hasAddedOtherIncentiveTypes A boolean indicates that the user received other incentive types such as free shipping or a coupon code from an external source.
+///
 + (void)trackCompletedPurchaseWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart trackingId:(NSString * _Nullable)trackingId couponCode:(NSString * _Nullable)couponCode appliedCoupons:(NSArray<NSString *> * _Nullable)appliedCoupons cartDiscountValueOfWizCart:(double)cartDiscountValueOfWizCart hasAddedOtherIncentiveTypes:(BOOL)hasAddedOtherIncentiveTypes;
+/// Sends a track clear cart request.
+/// Should be called when the cart was emptied.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param couponCode What is the current wizCart coupon code that is eligible by the client. If the client is not eligible for a WizCart coupon set to nil
+///
 + (void)trackClearCartWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart couponCode:(NSString * _Nullable)couponCode;
+/// Sends a get incentive request.
+/// Should be called each time the cart was updated for any reason.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
 + (void)getIncentive:(WizCartCart * _Nonnull)cart pageType:(enum WizCartPageType)pageType;
 @end
 
 
 SWIFT_CLASS("_TtC7WizCart11WizCartTier")
 @interface WizCartTier : NSObject
+/// A boolean to indicate if the tier is the first tier.
 @property (nonatomic, readonly) BOOL isFirstTier;
+/// A boolean to indicate if the tier is the last tier.
 @property (nonatomic, readonly) BOOL isLastTier;
+/// The index of the tier.
 @property (nonatomic, readonly) NSInteger index;
+/// The minimum value to qualify for this tier represented integer fractions.
+/// <ul>
+///   <li>
+///     For example:
+///     <ul>
+///       <li>
+///         A value of 2750 equals 27.5.
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
 @property (nonatomic, readonly) int32_t threshold;
+/// The threshold for the previous tier.
 @property (nonatomic, readonly) int32_t previousThreshold;
+/// The maximum discount value for the tier.
 @property (nonatomic, readonly) int32_t maxValue;
+/// The minimum discount value for the tier.
 @property (nonatomic, readonly) int32_t minValue;
+/// A tier id.
 @property (nonatomic, readonly, copy) NSString * _Nonnull id;
-@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nonnull metadata;
+/// Any additional information if available.
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nullable metadata;
+/// An object that represents the actual discount type and value
 @property (nonatomic, readonly, strong) WizCartIncentiveResult * _Nonnull discountResult;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -362,13 +647,16 @@ enum WizCartTrackingResponseStatus : NSInteger;
 
 SWIFT_CLASS("_TtC7WizCart20WizCartTrackResponse")
 @interface WizCartTrackResponse : NSObject
+/// The tracking response status.
 @property (nonatomic, readonly) enum WizCartTrackingResponseStatus status;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 typedef SWIFT_ENUM(NSInteger, WizCartTrackingResponseStatus, closed) {
+/// success.
   WizCartTrackingResponseStatusOk = 0,
+/// Failed.
   WizCartTrackingResponseStatusError = 1,
 };
 
@@ -610,15 +898,58 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_CLASS("_TtC7WizCart11WizCartCart")
 @interface WizCartCart : NSObject
+/// Creates a <code>WizCartCart</code> instance from the specified parameters.
+/// Represent the current client cart state.
+/// \param cartId A unique id for the cart.
+///
+/// \param items An array of WizCartProducts representing the current items that are in the cart.
+///
+/// \param total The total amount of the cart after discount, Including VAT, shipping, etc.
+///
+/// \param subtotal The total amount of the cart before discount, VAT, shipping, etc.
+///
+/// \param quantity Total items quantity. Two shirts and a jeans count as three items.
+///
 - (nonnull instancetype)init:(NSString * _Nonnull)cartId items:(NSArray<WizCartProduct *> * _Nonnull)items total:(double)total subtotal:(double)subtotal quantity:(int32_t)quantity OBJC_DESIGNATED_INITIALIZER;
+/// Creates a <code>WizCartCart</code> instance from the specified parameters.
+/// Represent the current client cart state.
+/// \param cartId A unique id for the cart.
+///
+/// \param items An array of WizCartProducts representing the current items that are in the cart.
+///
+/// \param total The total amount of the cart after discount, Including VAT, shipping, etc.
+///
+/// \param subtotal The total amount of the cart before discount, VAT, shipping, etc.
+///
+/// \param quantity Total items quantity. Two shirts and a jeans count as three items.
+///
+/// \param discountValue The total discount value of the cart, regardless if the discount originated from Personali or other sources.
+///
 - (nonnull instancetype)init:(NSString * _Nonnull)cartId items:(NSArray<WizCartProduct *> * _Nonnull)items total:(double)total subtotal:(double)subtotal quantity:(int32_t)quantity discountValue:(double)discountValue OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
+/// Configuration object used to configure the WizCartSDK.
 SWIFT_CLASS("_TtC7WizCart21WizCartConfigurations")
 @interface WizCartConfigurations : NSObject
+/// Creates a <code>WizCartConfigurations</code> instance from the specified parameters.
+/// <code>WizCartConfigurations</code> object is used in order to configure the SDK.
+/// \param accountId The account id supplied to you by Personali.
+///
+/// \param clientId A logged in user id.
+///
+/// \param tempClientId A client id that represents a user that is not currently logged in. If this field is left empty, the SDK will user the <code>retailerVisitor</code> as a <code>tempClientId</code>.
+///
+/// \param retailerVisitor An id that identifies a specific user regardless of he’s login state. If this field is left empty, A UUID will be generated for you.
+///
+/// \param isPreproduction A boolean indicating whether the SDK should work in pre production environement or the production environement.
+///
+/// \param attributes Any attributes you might want to attribute to the user for analytic purposes.
+///
+/// \param trafficSources An array that represents the traffic source of the current user.
+///
 - (nonnull instancetype)initWith:(NSString * _Nonnull)accountId clientId:(NSString * _Nullable)clientId tempClientId:(NSString * _Nullable)tempClientId retailerVisitor:(NSString * _Nullable)retailerVisitor isPreproduction:(BOOL)isPreproduction attributes:(NSDictionary<NSString *, NSString *> * _Nullable)attributes trafficSources:(NSArray<NSString *> * _Nullable)trafficSources OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -627,23 +958,50 @@ SWIFT_CLASS("_TtC7WizCart21WizCartConfigurations")
 @class WizCartTrackResponse;
 @class WizCartIncentiveResponse;
 
+/// A protocol which the <code>WizCartSDK</code>’s delegate must conform to. The delegate is informed
+/// when the SDK finishes processing the request and the result is ready for use.
+/// <ul>
+///   <li>
+///     The SDK holds a weak reference to the delegate, therefore the delegate MUST be implemented by a class.
+///   </li>
+///   <li>
+///     This is an Objective-C style protocol and all functions are marked as <code>optional</code>.
+///   </li>
+/// </ul>
 SWIFT_PROTOCOL("_TtP7WizCart15WizCartDelegate_")
 @protocol WizCartDelegate
 @optional
+/// The SDK finished processing the track request.
+/// \param trackResponse the <code>WizCartTrackResponse</code>.
+///
+/// \param error any <code>Error</code> that might occur along the way. A non nil error doesn’t necessarily indicate that the track request had failed.
+///
 - (void)trackResultWith:(WizCartTrackResponse * _Nullable)trackResponse and:(NSError * _Nullable)error;
+/// The SDK finished processing the get incentive request.
+/// \param incentiveResponse the <code>WizCartIncentiveResponse</code>.
+///
+/// \param error any <code>Error</code> that might occur along the way.
+///
 - (void)getIncentiveResultWith:(WizCartIncentiveResponse * _Nullable)incentiveResponse and:(NSError * _Nullable)error;
 @end
 
 @class WizCartTier;
 
+/// The response object for get incentive call.
 SWIFT_CLASS("_TtC7WizCart24WizCartIncentiveResponse")
 @interface WizCartIncentiveResponse : NSObject
+/// Current discount tier of the end user.
 @property (nonatomic, readonly, strong) WizCartTier * _Nullable currentTier;
+/// Next discount tier of the end user.
 @property (nonatomic, readonly, strong) WizCartTier * _Nullable nextTier;
+/// The expiration date for the current tier.
 @property (nonatomic, readonly) int64_t expirationDate;
+/// An id of the current incentive response
 @property (nonatomic, readonly) int32_t incentiveId;
-@property (nonatomic, readonly, copy) NSArray<WizCartProduct *> * _Nonnull cartEligibleItems;
-@property (nonatomic, readonly, copy) NSArray<WizCartProduct *> * _Nonnull pageEligibleItems;
+/// An array of items that are eligible for discount in the current cart.
+@property (nonatomic, readonly, copy) NSArray<WizCartProduct *> * _Nullable cartEligibleItems;
+/// An array of items that are eligible for discount in the current page.
+@property (nonatomic, readonly, copy) NSArray<WizCartProduct *> * _Nullable pageEligibleItems;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -652,16 +1010,34 @@ enum DiscountValueType : NSInteger;
 
 SWIFT_CLASS("_TtC7WizCart22WizCartIncentiveResult")
 @interface WizCartIncentiveResult : NSObject
+/// The discount value for the current user represented as integer fractions.
+/// <ul>
+///   <li>
+///     For example:
+///     <ul>
+///       <li>
+///         A value of 750 where type is fixed, equals to 7.5 in your current currency.
+///       </li>
+///       <li>
+///         A value of 750 where type is percentage, equals to 7.5%.
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
 @property (nonatomic, readonly) int32_t value;
+/// The discount type for the current tyre.
 @property (nonatomic, readonly) enum DiscountValueType type;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 typedef SWIFT_ENUM(NSInteger, DiscountValueType, closed) {
-  DiscountValueTypePercentage = 0,
-  DiscountValueTypeFixed = 1,
-  DiscountValueTypeUnknown = 2,
+/// The discount is a fixed amount.
+  DiscountValueTypeFixed = 0,
+/// The discount is a percentage from the cart’s subtotal.
+  DiscountValueTypePercentage = 1,
+/// Should never reach this case.
+  DiscountValueTypeUnknown = 397265,
 };
 
 typedef SWIFT_ENUM(NSInteger, WizCartPageType, closed) {
@@ -683,14 +1059,71 @@ typedef SWIFT_ENUM(NSInteger, WizCartPageType, closed) {
 
 SWIFT_CLASS("_TtC7WizCart14WizCartProduct")
 @interface WizCartProduct : NSObject
+/// A unique id for the current product model. Contrary to productId where multiple submodels of the same product might share the same id, this property should be unique for each submodel.
+/// <ul>
+///   <li>
+///     For example:
+///     <ul>
+///       <li>
+///         A t-shirt should have the same product id, but each shirt color should have a unique SKU.
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
 @property (nonatomic, readonly, copy) NSString * _Nonnull sku;
+/// An id for the current product. Contrary to SKU where multiple submodels of the same product might have a unique id, this property should be the same for all models of the same product.
+/// <ul>
+///   <li>
+///     For example:
+///     <ul>
+///       <li>
+///         A t-shirt might have a unique SKU for each submodel, but productId should be the same for all submodels.
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
 @property (nonatomic, readonly, copy) NSString * _Nonnull productId;
+/// The price of the product after discount.
 @property (nonatomic, readonly) double price;
+/// The price of the product before discount.
 @property (nonatomic, readonly) double listPrice;
+/// The brand name of the current product.
 @property (nonatomic, readonly, copy) NSString * _Nonnull brand;
+/// An array of categories for the current product.
+/// A product might belong to more than one category.
+/// <ul>
+///   <li>
+///     For example:
+///     <ul>
+///       <li>
+///         A pair of scissors might be in the household items category, and also in the tools category.
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull categories;
+/// Any attributes you might want to attribute to the product for analytic purposes.
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nullable attributes;
+/// The quantity of the item.
 @property (nonatomic, readonly) int32_t quantity;
+/// Creates a <code>WizCartProduct</code> instance from the specified parameters.
+/// <code>WizCartProduct</code> object is used to represent an item in the cart.
+/// \param sku A unique id for the current product model.
+///
+/// \param productId An id for the current product.
+///
+/// \param price The price of the product after discount.
+///
+/// \param listPrice The brand name of the current product.
+///
+/// \param brand The brand name of the current product.
+///
+/// \param categories An array of categories for the current product.
+///
+/// \param attributes Any attributes you might want to attribute to the product for analytic purposes.
+///
+/// \param quantity The quantity of the item.
+///
 - (nonnull instancetype)init:(NSString * _Nonnull)sku productId:(NSString * _Nonnull)productId price:(double)price listPrice:(double)listPrice brand:(NSString * _Nonnull)brand categories:(NSArray<NSString *> * _Nonnull)categories attributes:(NSDictionary<NSString *, NSString *> * _Nullable)attributes quantity:(int32_t)quantity OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -701,36 +1134,176 @@ SWIFT_CLASS_NAMED("WizCartSDK")
 @interface WizCartSDK : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// Set the delegate for the SDK.
+/// \param delegate Reference to a class that implements the <code>WizCartDelegate</code> protocol.
+///
 + (void)setDelegate:(id <WizCartDelegate> _Nullable)delegate;
+/// Set the user Id for the current id.
+/// \param clientId An id that identifies the current user.
+///
+/// \param isTempClientId A boolean that indicates if the clientId belongs to a logged in user or not.
+///
 + (void)setClientId:(NSString * _Nonnull)clientId isTempClientId:(BOOL)isTempClientId;
+/// Set any attributes you might want to attribute to the user for analytic purposes.
+/// \param attributesDictionary A dictionary that contains any data you wanna attribute to the user in a string format.
+///
 + (void)setAttributes:(NSDictionary<NSString *, NSString *> * _Nonnull)attributesDictionary;
+/// Set the traffic source for the current user.
+/// \param trafficSources An array that represents the traffic source for the current user.
+///
 + (void)setTrafficSources:(NSArray<NSString *> * _Nonnull)trafficSources;
+/// Initialize the SDK and set the configurations object for the current session.
+/// important:
+/// must be set prior to any other SDK calls.
+/// \param configuration The configuration object to use.
+///
 + (void)configure:(WizCartConfigurations * _Nonnull)configuration;
+/// Initialize the SDK and set the configurations object for the current session.
+/// important:
+/// must be set prior to any other SDK calls.
+/// \param configuration The configuration object to use.
+///
+/// \param delegate Reference to a class that implements the <code>WizCartDelegate</code> protocol.
+///
 + (void)configure:(WizCartConfigurations * _Nonnull)configuration and:(id <WizCartDelegate> _Nullable)delegate;
+/// Sends a track page view request.
+/// Should be called each time a view was loaded.
+/// important:
+/// Do not call this method if the page shouldn’t present any incentive.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param referrer What application started the host app. First PageView only.
+///
+/// \param pageReferrer What was the Url that started the host application. First PageView only.
+///
+/// \param couponCode What is the current WizCart coupon code that is eligible by the client. If the client is not eligible for a WizCart coupon set to nil
+///
+/// \param hasDisplayedWizCartIncentive A boolean indicates that the user was presented with the WizCart incentive.
+///
 + (void)trackPageViewWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart referrer:(NSString * _Nullable)referrer pageReferrer:(NSString * _Nullable)pageReferrer couponCode:(NSString * _Nullable)couponCode hasDisplayedWizCartIncentive:(BOOL)hasDisplayedWizCartIncentive;
+/// Sends a track minimized coupon view request.
+/// Should be called each time the coupon view was minimized.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param couponCode What is the current WizCart coupon code that is eligible by the client. If the client is not eligible for a WizCart coupon set to nil
+///
 + (void)trackMinimizeViewWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart couponCode:(NSString * _Nullable)couponCode;
+/// Sends a track maximized coupon view request.
+/// Should be called each time the coupon view returns back to normal from minimized state.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param couponCode What is the current WizCart coupon code that is eligible by the client. If the client is not eligible for a WizCart coupon set to nil
+///
 + (void)trackMaximizeViewWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart couponCode:(NSString * _Nullable)couponCode;
+/// Sends a track copy coupon request.
+/// Should be called each time the user copied the coupon to the clipboard.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param couponCode What is the current WizCart coupon code that is eligible by the client. If the client is not eligible for a WizCart coupon set to nil
+///
 + (void)trackCopyCouponWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart couponCode:(NSString * _Nullable)couponCode;
+/// Sends a track insert coupon to cart request.
+/// Should be called when the user inserted the coupon into the cart.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param couponCode What is the current WizCart coupon code that is eligible by the client. If the client is not eligible for a WizCart coupon set to nil
+///
 + (void)trackInsertCouponToCartWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart couponCode:(NSString * _Nullable)couponCode;
+/// Sends a track item added to the cart request.
+/// Should be called each time the user added an item or updated the quantity of an item in the cart.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param product The product that was added to or updated in the cart.
+///
 + (void)trackItemAddedToCartWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart product:(WizCartProduct * _Nonnull)product;
+/// Sends a track item added to the cart request.
+/// Should be called each time the user removed an item or updated the quantity of an item in the cart.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param product The product that was added to or updated in the cart.
+///
 + (void)trackItemRemovedFromCartWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart product:(WizCartProduct * _Nonnull)product;
+/// Sends a track completed purchase request.
+/// Should be called after the user finalized the transaction.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param trackingId The tracking id for the order.
+///
+/// \param couponCode What is the current WizCart coupon code that is eligible by the client. If the client is not eligible for a WizCart coupon set to nil
+///
+/// \param appliedCoupons An array of coupons that was used for this cart, regardless of the origin of the coupon,
+///
+/// \param cartDiscountValueOfWizCart The final discount value the user received from a WizCart incentive, set to 0 if no WizCart incentive was used.,
+///
+/// \param hasAddedOtherIncentiveTypes A boolean indicates that the user received other incentive types such as free shipping or a coupon code from an external source.
+///
 + (void)trackCompletedPurchaseWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart trackingId:(NSString * _Nullable)trackingId couponCode:(NSString * _Nullable)couponCode appliedCoupons:(NSArray<NSString *> * _Nullable)appliedCoupons cartDiscountValueOfWizCart:(double)cartDiscountValueOfWizCart hasAddedOtherIncentiveTypes:(BOOL)hasAddedOtherIncentiveTypes;
+/// Sends a track clear cart request.
+/// Should be called when the cart was emptied.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
+/// \param couponCode What is the current wizCart coupon code that is eligible by the client. If the client is not eligible for a WizCart coupon set to nil
+///
 + (void)trackClearCartWithPageView:(enum WizCartPageType)pageView cart:(WizCartCart * _Nonnull)cart couponCode:(NSString * _Nullable)couponCode;
+/// Sends a get incentive request.
+/// Should be called each time the cart was updated for any reason.
+/// \param pageView The current page that is displayed.
+///
+/// \param cart The current cart state.
+///
 + (void)getIncentive:(WizCartCart * _Nonnull)cart pageType:(enum WizCartPageType)pageType;
 @end
 
 
 SWIFT_CLASS("_TtC7WizCart11WizCartTier")
 @interface WizCartTier : NSObject
+/// A boolean to indicate if the tier is the first tier.
 @property (nonatomic, readonly) BOOL isFirstTier;
+/// A boolean to indicate if the tier is the last tier.
 @property (nonatomic, readonly) BOOL isLastTier;
+/// The index of the tier.
 @property (nonatomic, readonly) NSInteger index;
+/// The minimum value to qualify for this tier represented integer fractions.
+/// <ul>
+///   <li>
+///     For example:
+///     <ul>
+///       <li>
+///         A value of 2750 equals 27.5.
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
 @property (nonatomic, readonly) int32_t threshold;
+/// The threshold for the previous tier.
 @property (nonatomic, readonly) int32_t previousThreshold;
+/// The maximum discount value for the tier.
 @property (nonatomic, readonly) int32_t maxValue;
+/// The minimum discount value for the tier.
 @property (nonatomic, readonly) int32_t minValue;
+/// A tier id.
 @property (nonatomic, readonly, copy) NSString * _Nonnull id;
-@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nonnull metadata;
+/// Any additional information if available.
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nullable metadata;
+/// An object that represents the actual discount type and value
 @property (nonatomic, readonly, strong) WizCartIncentiveResult * _Nonnull discountResult;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -740,13 +1313,16 @@ enum WizCartTrackingResponseStatus : NSInteger;
 
 SWIFT_CLASS("_TtC7WizCart20WizCartTrackResponse")
 @interface WizCartTrackResponse : NSObject
+/// The tracking response status.
 @property (nonatomic, readonly) enum WizCartTrackingResponseStatus status;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 typedef SWIFT_ENUM(NSInteger, WizCartTrackingResponseStatus, closed) {
+/// success.
   WizCartTrackingResponseStatusOk = 0,
+/// Failed.
   WizCartTrackingResponseStatusError = 1,
 };
 
